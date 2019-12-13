@@ -1,0 +1,3 @@
+<table>
+  <tr *ngFor="let people of peoples"><td><a [routerLink]="['/peoples', people._id]">{{ people.firstname }}</a></td></tr>
+</table>

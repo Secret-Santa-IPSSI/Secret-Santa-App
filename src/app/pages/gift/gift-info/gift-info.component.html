@@ -1,0 +1,16 @@
+<div class="container" *ngIf="gifts">
+    <h1>{{ gifts[0].label }}</h1>
+    <h5>Mon cadeau en détails...</h5>
+    <p>{{gifts[0].details}}</p>
+    <p>id: {{gifts[0]._id}}</p>
+
+    <div *ngIf="gifts[1]">
+        <h2>Votre père noël</h2>
+        <h4>{{gifts[1].firstname}} {{ gifts[1].lastname }}</h4>
+        <p>id: {{gifts[1]._id}}</p>
+        <p *ngIf="gifts[1].email">Email: {{ gifts[1].email }}</p>
+    </div>
+
+    <a [routerLink]="['/gifts', gifts[0]._id, 'edit']" class="btn btn-success">Modifier</a>
+    <button (click)="delete(gifts[0].person_id)" class="btn btn-danger">Supprimer</button>
+</div>

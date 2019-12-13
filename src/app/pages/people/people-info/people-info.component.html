@@ -1,0 +1,16 @@
+<div class="container" *ngIf="people">
+    <h1>{{people[0].firstname}} {{ people[0].lastname }}</h1>
+    <p>id: {{people[0]._id}}</p>
+    <p *ngIf="people[0].email">Email: {{people[0].email}}</p>
+
+    <div *ngIf="people[1]">
+        <h2>Votre père noël</h2>
+        <h4>{{people[1].firstname}} {{ people[1].lastname }}</h4>
+        <p>id: {{people[1]._id}}</p>
+        <p *ngIf="people[1].email">Email: {{people[1].email}}</p>
+    </div>
+
+    <a [routerLink]="['/peoples', people[0]._id, 'gifts']" class="btn btn-primary">Voir la liste des cadeaux</a>
+    <a [routerLink]="['/peoples', people[0]._id, 'edit']" class="btn btn-success">Modifier</a>
+    <button (click)="delete()" class="btn btn-danger">Supprimer</button>
+</div>

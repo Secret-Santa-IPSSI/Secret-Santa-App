@@ -1,7 +1,21 @@
 <div class="container" *ngIf="group">
-  <h1>{{group.name}}</h1>
-  <p>id: {{group._id}}</p>
-  <p>created At: {{group.created_at}}</p>
+  <h1>{{group[0].name}}</h1>
+  <p>id: {{group[0]._id}}</p>
+  <p>created At: {{group[0].created_at}}</p>
 
+  <a [routerLink]="['/groups', group[0]._id, 'edit']" class="btn btn-success">Modifier</a>
   <button (click)="delete()" class="btn btn-danger">Supprimer</button>
+  <button (click)="randomize()" class="btn btn-primary">Attribuer des pères noël</button>
+
+  <h2>Liste des utilisateurs</h2>
+  <ng-container *ngFor="let people of group[1]">
+    <div class="container" *ngIf="people">
+      <h4>{{people.firstname}} {{ people.lastname }}</h4>
+      <p>id: {{people._id}}</p>
+      <p *ngIf="people.email">Email: {{people.email}}</p>
+      <p *ngIf="people.id_person_to_give">Ton père noël: {{people.id_person_to_give}}</p>
+
+      <button (click)="deleteUser(people._id)" class="btn btn-danger">Supprimer</button>
+    </div>
+  </ng-container>
 </div>
