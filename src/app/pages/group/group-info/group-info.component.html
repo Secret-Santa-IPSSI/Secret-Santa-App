@@ -1,21 +1,45 @@
 <div class="container" *ngIf="group">
-  <h1>{{group[0].name}}</h1>
-  <p>id: {{group[0]._id}}</p>
-  <p>created At: {{group[0].created_at}}</p>
+    <div class="jumbotron">
+        <h1>{{group[0].name}}</h1>
+        <p>Mise en place le {{group[0].created_at| date: 'dd-MM-yyyy'}}</p><br>
 
-  <a [routerLink]="['/groups', group[0]._id, 'edit']" class="btn btn-success">Modifier</a>
-  <button (click)="delete()" class="btn btn-danger">Supprimer</button>
-  <button (click)="randomize()" class="btn btn-primary">Attribuer des pères noël</button>
-
-  <h2>Liste des utilisateurs</h2>
-  <ng-container *ngFor="let people of group[1]">
-    <div class="container" *ngIf="people">
-      <h4>{{people.firstname}} {{ people.lastname }}</h4>
-      <p>id: {{people._id}}</p>
-      <p *ngIf="people.email">Email: {{people.email}}</p>
-      <p *ngIf="people.id_person_to_give">Ton père noël: {{people.id_person_to_give}}</p>
-
-      <button (click)="deleteUser(people._id)" class="btn btn-danger">Supprimer</button>
+        <a [routerLink]="['/groups', group[0]._id, 'edit']" class="btn btn-success">Modifier</a>
+        <button (click)="delete()" class="btn btn-danger ml-2">Supprimer</button>
+        <button (click)="randomize()" class="btn btn-primary ml-2">Attribuer des pères noël</button>
     </div>
-  </ng-container>
+
+    <h2>Liste des utilisateurs</h2>
+
+    <ng-container *ngIf="group[1].length !== 0; then notEmpty; else empty">
+    </ng-container>
+
+    <ng-template #notEmpty>
+        <div class="grid-3_4">
+            <div *ngFor="let people of group[1]">
+                <div class="whiteBox" *ngIf="people">
+                    <h4>{{people.firstname}} {{ people.lastname }}</h4>
+                    <p>
+                        <b>Adresse mail</b>
+                    </p>
+
+                    <p *ngIf="people.email">
+                        {{ people.email }}
+                    </p>
+
+                    <a *ngIf="people.id_person_to_give" [routerLink]="['/peoples', people.id_person_to_give]"
+                       class="btn btn-success mt-2">
+                        Secret santa
+                    </a>
+
+                    <div class="mt-2">
+                        <a [routerLink]="['/peoples', people._id]" class="btn btn-primary">Voir le membre</a>
+                        <button (click)="deleteUser(people._id)" class="btn btn-danger ml-2">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #empty>
+        <h4>Il n'y a personne dans ce groupe.</h4>
+    </ng-template>
 </div>

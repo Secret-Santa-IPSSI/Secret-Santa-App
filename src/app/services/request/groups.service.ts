@@ -24,8 +24,8 @@ export class GroupsService {
         });
     }
 
-    public getGroup(id: string): Promise<Group> {
-        return new Promise<Group>((resolve, reject) => {
+    public getGroup(id: string): Promise<Group[]> {
+        return new Promise<Group[]>((resolve, reject) => {
             const url = environment.api + 'group/' + id;
             this.http.get(url).subscribe(success => {
                 this.getMembers(id).then(response => {
@@ -72,6 +72,7 @@ export class GroupsService {
             const url = environment.api + 'group/' + group._id;
             this.http.put(url, group).subscribe(success => {
                 resolve(success as Group);
+                this.router.navigate(['/groups', success._id]);
             }, error => {
                 reject(error);
             });

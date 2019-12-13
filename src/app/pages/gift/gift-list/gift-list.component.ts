@@ -19,6 +19,7 @@ export class GiftListComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap.subscribe(async (params) => {
             this.gifts = await this.giftsService.getGifts(params.get('id'));
+            console.log(this.gifts);
         });
     }
 

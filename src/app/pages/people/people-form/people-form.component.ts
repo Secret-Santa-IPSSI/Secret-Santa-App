@@ -9,7 +9,7 @@ import {PeopleService} from '../../../services/request/people.service';
     styleUrls: ['./people-form.component.scss']
 })
 export class PeopleFormComponent implements OnInit {
-    people: People = {} as People;
+    people: People[] = [{} as People];
 
     constructor(private route: ActivatedRoute, private peopleService: PeopleService) {
     }
@@ -24,7 +24,7 @@ export class PeopleFormComponent implements OnInit {
     }
 
     handlePeople() {
-        this.people._id ? this.update() : this.add();
+        this.people[0]._id ? this.update() : this.add();
     }
 
     private async update() {
@@ -32,7 +32,7 @@ export class PeopleFormComponent implements OnInit {
     }
 
     private async add() {
-        await this.peopleService.add(this.people);
+        await this.peopleService.add(this.people[0]);
     }
 
 }

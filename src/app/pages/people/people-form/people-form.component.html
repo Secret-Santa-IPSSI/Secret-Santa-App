@@ -1,4 +1,14 @@
-<input type="text" placeholder="firstname" [(ngModel)]="people[0].firstname">
-<input type="text" placeholder="lastname" [(ngModel)]="people[0].lastname">
-<input type="mail" placeholder="email" [(ngModel)]="people[0].email">
-<button (click)="handlePeople()" >Valider</button>
+<div class="whiteBox w-50 text-center m-auto">
+    <h2>Membre</h2>
+    <div class="row mb-2">
+        <div class="col">
+            <input type="text" placeholder="firstname" [(ngModel)]="people[0].firstname" class="form-control">
+        </div>
+        <div class="col">
+            <input type="text" placeholder="lastname" [(ngModel)]="people[0].lastname" class="form-control">
+        </div>
+    </div>
+
+    <input type="mail" placeholder="email" [(ngModel)]="people[0].email" class="form-control mb-2">
+    <button (click)="handlePeople()" class="btn btn-primary">Valider</button>
+</div>

@@ -54,7 +54,7 @@ const routes: Routes = [
         component: GiftListComponent
     },
     {
-        path: 'peoples/:id/gifts/add',
+        path: 'peoples/:idPeople/gifts/add',
         component: GiftFormComponent
     },
     {
@@ -62,7 +62,7 @@ const routes: Routes = [
         component: GiftInfoComponent
     },
     {
-        path: 'gifts/:id/edit',
+        path: 'gifts/:idGift/edit',
         component: GiftFormComponent
     },
 ];

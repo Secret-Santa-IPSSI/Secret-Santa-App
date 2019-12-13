@@ -1,2 +1,5 @@
-<input type="text" placeholder="name" [(ngModel)]="group[0].name">
-<button (click)="handleGroup()" >Valider</button>
+<div class="whiteBox w-50 text-center m-auto">
+    <h1>Groupe</h1>
+    <input type="text" placeholder="Nom" [(ngModel)]="group[0].name" class="form-control">
+    <button (click)="handleGroup()" class="btn btn-primary mt-2">Valider</button>
+</div>

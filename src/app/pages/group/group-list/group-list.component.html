@@ -1,3 +1,19 @@
-<table>
-  <tr *ngFor="let group of groups"><td><a [routerLink]="['/groups', group._id]">{{ group.name }}</a></td></tr>
-</table>
+<ng-container
+        *ngIf="groups.length !== 0; then notEmpty; else empty">
+</ng-container>
+<ng-template #notEmpty>
+    <div class="grid-3_4">
+        <a *ngFor="let group of groups" [routerLink]="['/groups', group._id]" class="whiteBox">
+            <p>
+                {{ group.name }}
+            </p>
+        </a>
+    </div>
+</ng-template>
+<ng-template #empty>
+    <h4>Il n'y a aucun groupe.</h4>
+</ng-template>
+
+<div class="text-center mt-2">
+    <a [routerLink]="['/groups/add']" class="btn btn-primary">Ajouter un groupe</a>
+</div>

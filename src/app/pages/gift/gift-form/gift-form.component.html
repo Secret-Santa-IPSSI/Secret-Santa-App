@@ -1,3 +1,6 @@
-<input type="text" placeholder="label">
-<input type="text" placeholder="details">
-<button (click)="handleGift()" >Valider</button>
+<div class="whiteBox w-50 text-center m-auto">
+    <h1>Cadeau</h1>
+    <input type="text" placeholder="label" [(ngModel)]="gifts[0].label" class="form-control">
+    <textarea placeholder="details" [(ngModel)]="gifts[0].details" class="form-control mt-2"></textarea>
+    <button (click)="handleGift()" class="btn btn-primary mt-2">Valider</button>
+</div>

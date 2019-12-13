@@ -25,8 +25,8 @@ export class GiftsService {
         });
     }
 
-    public getGift(id: string): Promise<Gifts> {
-        return new Promise<Gifts>((resolve, reject) => {
+    public getGift(id: string): Promise<Gifts[]> {
+        return new Promise<Gifts[]>((resolve, reject) => {
             const url = environment.api + 'gifts/' + id;
             this.http.get(url).subscribe(success => {
                 const gift = success as Gifts;
@@ -48,7 +48,7 @@ export class GiftsService {
 
     public add(gifts: Gifts): Promise<Gifts> {
         return new Promise<Gifts>((resolve, reject) => {
-            const url = environment.api + 'gifts/';
+            const url = environment.api + 'persons/' + gifts.person_id + '/gifts';
             this.http.post(url, gifts).subscribe(success => {
                 resolve(success as Gifts);
                 this.router.navigate(['/gifts']);
@@ -59,11 +59,11 @@ export class GiftsService {
     }
 
     public update(gifts: Gifts): Promise<Gifts> {
-        console.log(gifts);
         return new Promise<Gifts>((resolve, reject) => {
-            const url = environment.api + 'gifts/' + gifts[0]._id;
+            const url = environment.api + 'gifts/' + gifts._id;
             this.http.put(url, gifts).subscribe(success => {
                 resolve(success as Gifts);
+                this.router.navigate(['/gifts', success._id]);
             }, error => {
                 reject(error);
             });

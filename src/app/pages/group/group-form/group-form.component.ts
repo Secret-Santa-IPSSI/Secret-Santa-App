@@ -9,7 +9,7 @@ import {GroupsService} from '../../../services/request/groups.service';
     styleUrls: ['./group-form.component.scss']
 })
 export class GroupFormComponent implements OnInit {
-    group: Group = {} as Group;
+    group: Group[] = [{} as Group];
 
     constructor(private route: ActivatedRoute, private groupsService: GroupsService) {
     }
@@ -24,15 +24,15 @@ export class GroupFormComponent implements OnInit {
     }
 
     handleGroup() {
-        this.group._id ? this.update() : this.add();
+        this.group[0]._id ? this.update() : this.add();
     }
 
     private async update() {
-        await this.groupsService.update(this.group);
+        await this.groupsService.update(this.group[0]);
     }
 
     private async add() {
-        await this.groupsService.add(this.group);
+        await this.groupsService.add(this.group[0]);
     }
 
 }

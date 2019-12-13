@@ -23,8 +23,8 @@ export class PeopleService {
         });
     }
 
-    public getPeople(id: string): Promise<People> {
-        return new Promise<People>((resolve, reject) => {
+    public getPeople(id: string): Promise<People[]> {
+        return new Promise<People[]>((resolve, reject) => {
             const url = environment.api + 'persons/' + id;
             this.http.get(url).subscribe(success => {
                 const people = success as People;
@@ -78,6 +78,7 @@ export class PeopleService {
             const url = environment.api + 'persons/' + people._id;
             this.http.put(url, people).subscribe(success => {
                 resolve(success as People);
+                this.router.navigate(['/peoples', success._id]);
             }, error => {
                 reject(error);
             });
