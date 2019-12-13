@@ -1,0 +1,3 @@
+<ul>
+  <li *ngFor="let group of groups"><a [routerLink]="['/groups', group._id]">{{ group.name }}</a></li>
+</ul>

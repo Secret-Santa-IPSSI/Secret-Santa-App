@@ -1,0 +1,7 @@
+<div class="container" *ngIf="group">
+  <h1>{{group.name}}</h1>
+  <p>id: {{group._id}}</p>
+  <p>created At: {{group.created_at}}</p>
+
+  <button (click)="delete()" class="btn btn-danger">Supprimer</button>
+</div>
