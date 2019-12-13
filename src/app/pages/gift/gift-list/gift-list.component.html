@@ -3,17 +3,17 @@
 </ng-container>
 
 <ng-template #notEmpty>
-  <div class="grid-3_4">
-    <a *ngFor="let gift of gifts" [routerLink]="['/gifts', gift._id]" class="whiteBox">
-      <p>
-        {{ gift.label }}
-      </p>
-    </a>
-  </div>
+    <div class="grid-3_4">
+        <a *ngFor="let gift of gifts" [routerLink]="['/gifts', gift._id]" class="whiteBox">
+            <p>
+                {{ gift.label }}
+            </p>
+        </a>
+    </div>
 </ng-template>
 <ng-template #empty>
-  <div class="redBox">
-    <h4>Il semblerait qu'il n'y ai pas de cadeau pour vous !</h4>
-    <p>Attendez que votre secret santa passe...</p>
-  </div>
+    <div class="redBox">
+        <h4>Il semblerait qu'il n'y ai pas de cadeau pour vous !</h4>
+        <p>Attendez que votre secret santa passe...</p>
+    </div>
 </ng-template>

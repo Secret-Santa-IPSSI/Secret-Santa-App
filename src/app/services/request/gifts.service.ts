@@ -51,7 +51,7 @@ export class GiftsService {
             const url = environment.api + 'persons/' + gifts.person_id + '/gifts';
             this.http.post(url, gifts).subscribe(success => {
                 resolve(success as Gifts);
-                this.router.navigate(['/gifts']);
+                this.router.navigate(['/peoples', gifts.person_id, 'gifts']);
             }, error => {
                 reject(error);
             });

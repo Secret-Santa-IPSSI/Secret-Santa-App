@@ -8,10 +8,10 @@
         <button (click)="delete(gifts[0].person_id)" class="btn btn-danger ml-2">Supprimer</button>
         <a *ngIf="gifts[1]" [routerLink]="['/peoples', gifts[1]._id]" class="btn btn-success ml-2">Secret santa</a>
     </div>
-<!--    <div *ngIf="gifts[1]">-->
-<!--        <h2>Votre père noël</h2>-->
-<!--        <h4>{{gifts[1].firstname}} {{ gifts[1].lastname }}</h4>-->
-<!--        <p>id: {{gifts[1]._id}}</p>-->
-<!--        <p *ngIf="gifts[1].email">Email: {{ gifts[1].email }}</p>-->
-<!--    </div>-->
+    <!--    <div *ngIf="gifts[1]">-->
+    <!--        <h2>Votre père noël</h2>-->
+    <!--        <h4>{{gifts[1].firstname}} {{ gifts[1].lastname }}</h4>-->
+    <!--        <p>id: {{gifts[1]._id}}</p>-->
+    <!--        <p *ngIf="gifts[1].email">Email: {{ gifts[1].email }}</p>-->
+    <!--    </div>-->
 </div>

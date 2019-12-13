@@ -26,8 +26,12 @@
         </div>
 
         <div class="whiteBox">
-            <a [routerLink]="['/peoples', people[0]._id, 'gifts']" class="btn btn-primary mb-2">Voir la liste des cadeaux</a><br>
-            <a [routerLink]="['/peoples', people[0]._id, 'edit']" class="btn btn-success mb-2">Modifier le membre</a><br>
+            <a [routerLink]="['/peoples', people[0]._id, 'gifts']" class="btn btn-primary mr-2">Voir la liste des
+                cadeaux</a>
+            <a [routerLink]="['/peoples', people[0]._id, 'gifts', 'add']" class="btn btn-primary">Ajouter un
+                cadeau</a><br>
+            <a [routerLink]="['/peoples', people[0]._id, 'edit']" class="btn btn-success mt-2 mb-2">Modifier le
+                membre</a><br>
             <button (click)="delete()" class="btn btn-danger">Supprimer le membre</button>
         </div>
     </div>
